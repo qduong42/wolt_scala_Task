@@ -1,5 +1,6 @@
 package api.routes
 
+import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.{Directives, Route}
 
 class MyApiRoutes extends Directives with JsonSupport {
@@ -9,8 +10,10 @@ class MyApiRoutes extends Directives with JsonSupport {
         post {
           entity(as[OrderData]) { request =>
             println("Posted at http://localhost:8080/")
-            // Your processing logic here
-            complete("Request received successfully!")
+            if (isValidTime(request.time))
+              complete("Request received successfully!")
+            else
+              complete(StatusCodes.BadRequest, "Invalid time format. Please provide the time in UTC ISO format.")
           }
         }
       } ~
