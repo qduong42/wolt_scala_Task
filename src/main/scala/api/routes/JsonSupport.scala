@@ -1,7 +1,6 @@
 package api.routes
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
-import com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time
 import spray.json.{DefaultJsonProtocol, RootJsonFormat}
 
 import java.time.format.DateTimeFormatter
@@ -10,16 +9,20 @@ import java.time.{DateTimeException, Instant, ZoneId}
 
 trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
   case class OrderData(cart_value: Int, delivery_distance: Int, number_of_items: Int, time: String)
+  case class DeliveryFeeResponse(delivery_fee: Int)
   implicit val OrderDataFormat: RootJsonFormat[OrderData] = jsonFormat4(OrderData)
-//  sealed trait TimeValidationResult
-//  private case class ValidTime(instant: Instant) extends TimeValidationResult
-//  private case class InvalidTime(errorMessage: String) extends TimeValidationResult
+  implicit val deliveryFeeResponseFormat: RootJsonFormat[DeliveryFeeResponse] = jsonFormat1(DeliveryFeeResponse)
+
+  def createDeliveryFeeResponse(deliveryFeeInCents: Int): DeliveryFeeResponse = {
+    // Marshal the case class instance into JSON using JsonSupport
+    DeliveryFeeResponse(deliveryFeeInCents)
+  }
 
   def isValidTime(time: String): Boolean = {
     val formatter = DateTimeFormatter.ISO_INSTANT
 
     try {
-      val parsedTime = Instant.from(formatter.parse(time))
+      Instant.from(formatter.parse(time))
       true
     } catch {
       case _: DateTimeException =>
