@@ -1,10 +1,9 @@
 package api.services
 
 import api.routes.JsonSupport
-
 import java.time.format.DateTimeFormatter
-import java.time.{DayOfWeek, Instant, LocalTime, OffsetTime, ZoneOffset}
-
+import java.time.{DayOfWeek, Instant, OffsetTime, ZoneOffset}
+import scala.math.Ordered.orderingToOrdered
 
 trait DeliveryFeeCalculationService {
   private val MaximumDeliveryFee = 1500
@@ -17,39 +16,32 @@ trait DeliveryFeeCalculationService {
   private val DeliveryFeeFirst1000m = 200
   private val DeliveryFeePerAdditional500m = 100
   private val FridayRushSurchargeMultiplier = 1.2f
-
+  def isOneFieldNegative(orderData:JsonSupport.OrderData): Boolean={
+    orderData.delivery_distance < 0 || orderData.cart_value < 0 || orderData.number_of_items < 0
+  }
   private def isOneFieldZero(orderData:JsonSupport.OrderData): Boolean ={
-    if (orderData.delivery_distance == 0 || orderData.cart_value == 0 || orderData.number_of_items == 0)
-      true
-    else
-      false
+    orderData.delivery_distance == 0 || orderData.cart_value == 0 || orderData.number_of_items == 0
   }
-
   private def isCartValueMoreThanNeededForFreeDelivery(cartValue: Int):Boolean ={
-    if (cartValue >= CartValueNeededForFreeDelivery) {
-      return true
-    }
-    false
+    cartValue >= CartValueNeededForFreeDelivery
   }
-
   private def deliveryDistanceFee(deliveryDistance:Int): Int ={
     var deliveryDistanceCost = DeliveryFeeFirst1000m
     if (deliveryDistance > 1000) {
-      if (deliveryDistance % 500 != 0)
+      if (deliveryDistance % 500 != 0) {
         deliveryDistanceCost += DeliveryFeePerAdditional500m
+      }
       deliveryDistanceCost += (((deliveryDistance-1000) / 500)*DeliveryFeePerAdditional500m)
     }
     deliveryDistanceCost
   }
-
   private def cartValueCheck(cartValue :Int): Int ={
     var feeAfterSurcharge = 0
     if (cartValue < MinimumCartValueNoSurcharge) {
-      feeAfterSurcharge = (MinimumCartValueNoSurcharge - cartValue)
+      feeAfterSurcharge = MinimumCartValueNoSurcharge - cartValue
     }
     feeAfterSurcharge
   }
-
   private def calculateNoOfItemsSurcharge(numberOfItems: Int) : Int ={
     var bulkSurchargeFee = 0
     if (numberOfItems > MaximumNumberOfItemsNoSurcharge)
@@ -62,18 +54,14 @@ trait DeliveryFeeCalculationService {
     val formatter = DateTimeFormatter.ISO_INSTANT
     Instant.from(formatter.parse(isoTime))
   }
-
   private def isFriday(instant: Instant): Boolean = {
     instant.atOffset(ZoneOffset.UTC).getDayOfWeek == DayOfWeek.FRIDAY
   }
-
   private def isRushHour(instant: Instant): Boolean = {
     val RushHourStartTime: OffsetTime = OffsetTime.of(15, 0, 0, 0, ZoneOffset.UTC)
     val RushHourEndTime: OffsetTime = OffsetTime.of(19, 0, 0, 0, ZoneOffset.UTC)
     val timeOfDay = instant.atOffset(ZoneOffset.UTC).toOffsetTime
-    val isAfterStart = !timeOfDay.isBefore(RushHourStartTime)
-    val isBeforeEnd = timeOfDay.isBefore(RushHourEndTime)
-    isAfterStart && isBeforeEnd
+    timeOfDay >= RushHourStartTime && timeOfDay <= RushHourEndTime
   }
   private def calculateFridayRushSurcharge(isoTime: String): Float ={
     val instant = parseIsoTime(isoTime)
@@ -83,10 +71,7 @@ trait DeliveryFeeCalculationService {
     1.0f
   }
   private def isOverMaximumDeliveryFee(deliveryFee: Int):Boolean = {
-    if (deliveryFee > MaximumDeliveryFee)
-      true
-    else
-      false
+    deliveryFee > MaximumDeliveryFee
   }
   def calculateDeliveryFee(orderData: JsonSupport.OrderData): Int = {
     var deliveryFeeInCents = 0
@@ -103,5 +88,3 @@ trait DeliveryFeeCalculationService {
     deliveryFeeInCents
   }
 }
-
-// No need for DefaultDeliveryService
