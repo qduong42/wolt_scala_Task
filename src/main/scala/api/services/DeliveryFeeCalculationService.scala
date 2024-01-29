@@ -1,21 +1,22 @@
 package api.services
 
 import api.routes.JsonSupport
+
 import java.time.format.DateTimeFormatter
 import java.time.{DayOfWeek, Instant, OffsetTime, ZoneOffset}
 import scala.math.Ordered.orderingToOrdered
 
 trait DeliveryFeeCalculationService {
-  private val MaximumDeliveryFee = 1500
   private val CartValueNeededForFreeDelivery = 20000
-  private val MinimumCartValueNoSurcharge = 1000
-  private val MaximumNumberOfItemsNoSurcharge = 4
-  private val MaximumNumberOfItemsNoBulkSurcharge = 12
-  private val SurchargePerItemMoreThanFour = 50
-  private val BulkSurcharge = 120
   private val DeliveryFeeFirst1000m = 200
   private val DeliveryFeePerAdditional500m = 100
+  private val MinimumCartValueNoSurcharge = 1000
+  private val MaximumNumberOfItemsNoSurcharge = 4
+  private val SurchargePerItemMoreThanFour = 50
+  private val MaximumNumberOfItemsNoBulkSurcharge = 12
+  private val BulkSurcharge = 120
   private val FridayRushSurchargeMultiplier = 1.2f
+  private val MaximumDeliveryFee = 1500
   def isOneFieldNegative(orderData:JsonSupport.OrderData): Boolean={
     orderData.delivery_distance < 0 || orderData.cart_value < 0 || orderData.number_of_items < 0
   }

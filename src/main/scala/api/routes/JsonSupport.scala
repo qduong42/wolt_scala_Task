@@ -18,11 +18,11 @@ trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
 
   def isValidTime(time: String): Boolean = {
     val formatter = DateTimeFormatter.ISO_INSTANT.withResolverStyle(ResolverStyle.STRICT)
-
     try {
       Instant.from(formatter.parse(time))
       true
-    } catch {
+    }
+    catch {
       case _: DateTimeException =>
         false
     }
