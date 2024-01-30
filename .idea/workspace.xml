@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="Minor Adjustments TODO: ADD EVEN MORE tests">
+    <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="added delete req to tests. TODO: ADD EVEN MORE tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/api/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/api/routes/JsonSupport.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/routes/JsonSupport.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -146,6 +143,7 @@
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tin_b/Downloads/WoltScalaTask - Submit&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -155,7 +153,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="ScalaTest.DeliveryApiRoutesSpec">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="api.Main" />
       <module name="WoltScalaTask" />
@@ -232,8 +230,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.DeliveryApiRoutesSpec" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request when DELETE request" />
         <item itemvalue="ScalaTest.MyApiRoutesSpec" />
         <item itemvalue="ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a success message for POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a response in application/json for POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when random string input not remotely related to time&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is almost like in ISO but missing T and Z&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when cart_value is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when delivery_distance is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when number_of_items is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when time is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests with wrong types for fields in body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;&#10;HTTP Request to /api/calculate-calculate-delivery-fee should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1 - 500&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1000&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1999&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 2000&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive&#10;HTTP Request to /api/calculate-calculate-delivery-fee should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive" />
@@ -254,6 +252,8 @@
       <workItem from="1706303011975" duration="14843000" />
       <workItem from="1706469819594" duration="29418000" />
       <workItem from="1706609994153" duration="1897000" />
+      <workItem from="1706618050583" duration="694000" />
+      <workItem from="1706618909729" duration="826000" />
     </task>
     <task id="LOCAL-00001" summary="1 Post Request, root working, post not accepting json">
       <option name="closed" value="true" />
@@ -327,11 +327,30 @@
       <option name="project" value="LOCAL" />
       <updated>1706561538456</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added delete req to tests. TODO: ADD EVEN MORE tests">
+      <option name="closed" value="true" />
+      <created>1706618143154</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706618143154</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Worked, resolved errors with testkit not found." />
@@ -341,7 +360,8 @@
     <MESSAGE value="Cleaned Code. TODO: ADD EVEN MORE tests" />
     <MESSAGE value="Renamed MyApiRoutes to DeliveryApiRoutes TODO: ADD EVEN MORE tests" />
     <MESSAGE value="Minor Adjustments TODO: ADD EVEN MORE tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor Adjustments TODO: ADD EVEN MORE tests" />
+    <MESSAGE value="added delete req to tests. TODO: ADD EVEN MORE tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete req to tests. TODO: ADD EVEN MORE tests" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -1,6 +1,6 @@
 package api.services
 
-import api.routes.JsonSupport
+import api.routes.{JsonSupport, OrderData}
 
 import java.time.format.DateTimeFormatter
 import java.time.{DayOfWeek, Instant, OffsetTime, ZoneOffset}
@@ -17,10 +17,10 @@ trait DeliveryFeeCalculationService {
   private val BulkSurcharge = 120
   private val FridayRushSurchargeMultiplier = 1.2f
   private val MaximumDeliveryFee = 1500
-  def isOneFieldNegative(orderData:JsonSupport.OrderData): Boolean={
+  def isOneFieldNegative(orderData:OrderData): Boolean={
     orderData.delivery_distance < 0 || orderData.cart_value < 0 || orderData.number_of_items < 0
   }
-  private def isOneFieldZero(orderData:JsonSupport.OrderData): Boolean ={
+  private def isOneFieldZero(orderData:OrderData): Boolean ={
     orderData.delivery_distance == 0 || orderData.cart_value == 0 || orderData.number_of_items == 0
   }
   private def isCartValueMoreThanNeededForFreeDelivery(cartValue: Int):Boolean ={
@@ -74,7 +74,7 @@ trait DeliveryFeeCalculationService {
   private def isOverMaximumDeliveryFee(deliveryFee: Int):Boolean = {
     deliveryFee > MaximumDeliveryFee
   }
-  def calculateDeliveryFee(orderData: JsonSupport.OrderData): Int = {
+  def calculateDeliveryFee(orderData: OrderData): Int = {
     var deliveryFeeInCents = 0
     if (isOneFieldZero(orderData))
       return 0

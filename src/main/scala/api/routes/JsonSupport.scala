@@ -5,10 +5,10 @@ import spray.json.{DefaultJsonProtocol, RootJsonFormat}
 import java.time.format.{DateTimeFormatter, ResolverStyle}
 import java.time.{DateTimeException, Instant}
 
+final case class OrderData(cart_value: Int, delivery_distance: Int, number_of_items: Int, time: String)
+final case class DeliveryFeeResponse(delivery_fee: Int)
 
 trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
-  final case class OrderData(cart_value: Int, delivery_distance: Int, number_of_items: Int, time: String)
-  final case class DeliveryFeeResponse(delivery_fee: Int)
   implicit val OrderDataFormat: RootJsonFormat[OrderData] = jsonFormat4(OrderData)
   implicit val deliveryFeeResponseFormat: RootJsonFormat[DeliveryFeeResponse] = jsonFormat1(DeliveryFeeResponse)
 

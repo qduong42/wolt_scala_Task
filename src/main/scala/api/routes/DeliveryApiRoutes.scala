@@ -20,7 +20,7 @@ class DeliveryApiRoutes extends Directives with JsonSupport with DeliveryFeeCalc
   private def handleCalculateDeliveryFee: Route = {
     extractRequest { request =>
       if (request.entity.contentType == ContentTypes.`application/json`) {
-        entity(as[api.routes.JsonSupport.OrderData]) { requestData =>
+        entity(as[OrderData]) { requestData =>
           handleDeliveryFeeRequest(requestData)
         }
       } else {
@@ -29,7 +29,7 @@ class DeliveryApiRoutes extends Directives with JsonSupport with DeliveryFeeCalc
     }
   }
 
-  private def handleDeliveryFeeRequest(requestData: JsonSupport.OrderData): Route = {
+  private def handleDeliveryFeeRequest(requestData: OrderData): Route = {
     if (isValidTime(requestData.time) && !isOneFieldNegative(requestData)) {
       val deliveryFeeInCents = calculateDeliveryFee(requestData)
       complete(StatusCodes.OK, createDeliveryFeeResponse(deliveryFeeInCents))
