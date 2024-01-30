@@ -12,9 +12,16 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
   val DeliveryApiRoutes = new DeliveryApiRoutes
 
   "HTTP Request to /api/calculate-calculate-delivery-fee" should {
-    "be rejected for other requests than POST request" in {
-      Get("/api/calculate-delivery-fee") ~> DeliveryApiRoutes.route ~> check {
-        rejection shouldEqual MethodRejection(HttpMethods.POST)
+    "be rejected for other requests than POST request" when {
+      "GET request" in{
+        Get("/api/calculate-delivery-fee") ~> DeliveryApiRoutes.route ~> check {
+          rejection shouldEqual MethodRejection(HttpMethods.POST)
+        }
+      }
+      "DELETE request" in{
+        Delete("/api/calculate-delivery-fee") ~> DeliveryApiRoutes.route ~> check {
+          rejection shouldEqual MethodRejection(HttpMethods.POST)
+        }
       }
     }
     "return a success message for POST request" in {

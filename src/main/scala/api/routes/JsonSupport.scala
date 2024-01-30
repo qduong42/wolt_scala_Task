@@ -21,8 +21,7 @@ trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
     try {
       Instant.from(formatter.parse(time))
       true
-    }
-    catch {
+    } catch {
       case _: DateTimeException =>
         false
     }

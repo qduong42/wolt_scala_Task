@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="Renamed MyApiRoutes to DeliveryApiRoutes TODO: ADD EVEN MORE tests">
+    <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="Minor Adjustments TODO: ADD EVEN MORE tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/api/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/api/routes/JsonSupport.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/routes/JsonSupport.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/api/services/DeliveryFeeCalculationService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/services/DeliveryFeeCalculationService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\tin_b\IdeaProjects\WoltScalaTask\htmlReport" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -52,6 +56,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;qduong42&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="41f2932c-9a3d-40ee-8329-9b189f1b5e4e" />
+        <option name="url" value="https://github.com/qduong42/wolt_scala_Task.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -67,72 +88,73 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "ScalaTest.DeliveryApiRoutesSpec.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should be rejected for anything other than POST\nHTTP Request should return a success message for POST requests to /api/delivery-fee\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when random string input not remotely related to time\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when time is almost like in ISO but missing T and Z\nHTTP Request should return a bad request:malformed for POST requests missing required members when cart_value is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when delivery_distance is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when number_of_items is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when time is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests with wrong types for fields\nHTTP Request should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain\nHTTP Request should return correct delivery distance fee when delivery distance is 0\nHTTP Request should return correct delivery distance fee when delivery distance is 1 - 500\nHTTP Request should return correct delivery distance fee when delivery distance is 1000\nHTTP Request should return correct delivery distance fee when delivery distance is 1999\nHTTP Request should return correct delivery distance fee when delivery distance is 2000\nHTTP Request should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge\nHTTP Request should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge\nHTTP Request should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge\nHTTP Request should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery\nHTTP Request should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge\nHTTP Request should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge\nHTTP Request should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should be rejected for anything other than POST\nHTTP Request should return a success message for POST requests to /api/delivery-fee\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when string is not even time\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z\nHTTP Request should return a bad request:malformed for POST requests missing required members when cart_value is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when delivery_distance is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when number_of_items is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when time is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests with wrong types for fields\nHTTP Request should return rejection for POST requests with headers other than JSON for example text/plain.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should be rejected for anything other than POST.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 1000.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 1999.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 2000.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 501 - 1000.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return a response in application/json.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery distance fee calculation when delivery distance is 0\nHTTP Request should return correct delivery distance fee calculation when delivery distance is 1 - 500.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery distance fee calculation when delivery distance is 0.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery distance fee calculation when delivery distance is 1 - 500.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value below MinimumCartValueNoSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value equals CartValueNeededForFreeDelivery.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value equals MinimumCartValueNoSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value more than MinimumCartValueNoSurcharge.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request should return rejection for POST requests with headers other than JSON for example text/plain.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to / should return a 'not found' response for unsupported endpoints.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request\nHTTP Request to /api/calculate-calculate-delivery-fee should return a success message for POST request\nHTTP Request to /api/calculate-calculate-delivery-fee should return a response in application/json for POST request\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when random string input not remotely related to time\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is almost like in ISO but missing T and Z\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when cart_value is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when delivery_distance is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when number_of_items is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when time is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests with wrong types for fields in body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request \"One or more input field values except time is negative\"\nHTTP Request to /api/calculate-calculate-delivery-fee should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1 - 500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1999\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 2000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive\nHTTP Request to /api/calculate-calculate-delivery-fee should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request \"One or more input field values except time is negative\".executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is not given in Instant form in UTC yyyy-MM-ddTHH:mm:ss.SSSZ.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to all other paths should return a 'not found' response for unsupported endpoints when api root endpoint requested.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.HTTP Request to all other paths should return a 'not found' response for unsupported endpoints when root endpoint requested.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return 405 method not allowed for anything other than POST.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return 415 Unsupported Media Type for POST requests with headers other than JSON.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests missing required member cart value.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests missing required members when delivery_distance is missing in POST request body.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests missing required members when time is missing in POST request body.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request:malformed for POST requests with wrong types for fields.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when string is not even time\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z\nMyApiRoutes should return a bad request for POST requests missing required members when cart_value is missing in POST request body\nMyApiRoutes should return a bad request for POST requests missing required members when delivery_distance is missing in POST request body\nMyApiRoutes should return a bad request for POST requests missing required members when number_of_items is missing in POST request body\nMyApiRoutes should return a bad request for POST requests missing required members when time is missing in POST request body\nMyApiRoutes should return 415 Unsupported Media Type for POST requests with headers other than JSON for example text/plain.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when string is not even time\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/endpoint.executor": "Run",
-    "ScalaTest.MyApiRoutesSpec.executor": "Run",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request when DELETE request.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.DeliveryApiRoutesSpec.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should be rejected for anything other than POST\nHTTP Request should return a success message for POST requests to /api/delivery-fee\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when random string input not remotely related to time\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when time is almost like in ISO but missing T and Z\nHTTP Request should return a bad request:malformed for POST requests missing required members when cart_value is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when delivery_distance is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when number_of_items is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when time is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests with wrong types for fields\nHTTP Request should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain\nHTTP Request should return correct delivery distance fee when delivery distance is 0\nHTTP Request should return correct delivery distance fee when delivery distance is 1 - 500\nHTTP Request should return correct delivery distance fee when delivery distance is 1000\nHTTP Request should return correct delivery distance fee when delivery distance is 1999\nHTTP Request should return correct delivery distance fee when delivery distance is 2000\nHTTP Request should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge\nHTTP Request should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge\nHTTP Request should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge\nHTTP Request should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery\nHTTP Request should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge\nHTTP Request should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge\nHTTP Request should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should be rejected for anything other than POST\nHTTP Request should return a success message for POST requests to /api/delivery-fee\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when string is not even time\nHTTP Request should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z\nHTTP Request should return a bad request:malformed for POST requests missing required members when cart_value is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when delivery_distance is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when number_of_items is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests missing required members when time is missing in POST request body\nHTTP Request should return a bad request:malformed for POST requests with wrong types for fields\nHTTP Request should return rejection for POST requests with headers other than JSON for example text/plain.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should be rejected for anything other than POST.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 1000.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 1999.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 2000.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should delivery distance is 501 - 1000.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return a response in application/json.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery distance fee calculation when delivery distance is 0\nHTTP Request should return correct delivery distance fee calculation when delivery distance is 1 - 500.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery distance fee calculation when delivery distance is 0.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery distance fee calculation when delivery distance is 1 - 500.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value below MinimumCartValueNoSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value equals CartValueNeededForFreeDelivery.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value equals MinimumCartValueNoSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return correct delivery fee when cart value more than MinimumCartValueNoSurcharge.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request should return rejection for POST requests with headers other than JSON for example text/plain.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to / should return a 'not found' response for unsupported endpoints.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request\nHTTP Request to /api/calculate-calculate-delivery-fee should return a success message for POST request\nHTTP Request to /api/calculate-calculate-delivery-fee should return a response in application/json for POST request\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when random string input not remotely related to time\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is almost like in ISO but missing T and Z\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when cart_value is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when delivery_distance is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when number_of_items is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when time is missing in POST request body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests with wrong types for fields in body\nHTTP Request to /api/calculate-calculate-delivery-fee should return a bad request \&quot;One or more input field values except time is negative\&quot;\nHTTP Request to /api/calculate-calculate-delivery-fee should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1 - 500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1999\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 2000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge\nHTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive\nHTTP Request to /api/calculate-calculate-delivery-fee should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request \&quot;One or more input field values except time is negative\&quot;.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is not given in Instant form in UTC yyyy-MM-ddTHH:mm:ss.SSSZ.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to all other paths should return a 'not found' response for unsupported endpoints when api root endpoint requested.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.HTTP Request to all other paths should return a 'not found' response for unsupported endpoints when root endpoint requested.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return 405 method not allowed for anything other than POST.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return 415 Unsupported Media Type for POST requests with headers other than JSON.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests missing required member cart value.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests missing required members when delivery_distance is missing in POST request body.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests missing required members when time is missing in POST request body.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a bad request:malformed for POST requests with wrong types for fields.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when string is not even time\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z\nMyApiRoutes should return a bad request for POST requests missing required members when cart_value is missing in POST request body\nMyApiRoutes should return a bad request for POST requests missing required members when delivery_distance is missing in POST request body\nMyApiRoutes should return a bad request for POST requests missing required members when number_of_items is missing in POST request body\nMyApiRoutes should return a bad request for POST requests missing required members when time is missing in POST request body\nMyApiRoutes should return 415 Unsupported Media Type for POST requests with headers other than JSON for example text/plain.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when string is not even time\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee when Time is almost like in ISO but missing T and Z.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee\nMyApiRoutes should return a bad request for POST requests with invalid time to /api/delivery-fee.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/delivery-fee.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.MyApiRoutes should return a success message for POST requests to /api/endpoint.executor&quot;: &quot;Run&quot;,
+    &quot;ScalaTest.MyApiRoutesSpec.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="api.Main" />
@@ -156,6 +178,20 @@
       </option>
       <option name="testKind" value="Class" />
       <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request when DELETE request" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="WoltScalaTask" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="testKind" value="Test name" />
+      <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
+      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request when DELETE request" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,34 +223,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="WoltScalaTask" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <option name="testKind" value="Test name" />
-      <option name="testClassPath" value="api.routes.MyApiRoutesSpec" />
-      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="ScalaTest.DeliveryApiRoutesSpec" />
+      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request when DELETE request" />
       <item itemvalue="ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a success message for POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a response in application/json for POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when random string input not remotely related to time&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is almost like in ISO but missing T and Z&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when cart_value is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when delivery_distance is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when number_of_items is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when time is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests with wrong types for fields in body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;&#10;HTTP Request to /api/calculate-calculate-delivery-fee should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1 - 500&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1000&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1999&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 2000&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive&#10;HTTP Request to /api/calculate-calculate-delivery-fee should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive" />
-      <item itemvalue="ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;" />
       <item itemvalue="ScalaTest.MyApiRoutesSpec" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="ScalaTest.DeliveryApiRoutesSpec" />
+        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request when DELETE request" />
         <item itemvalue="ScalaTest.MyApiRoutesSpec" />
         <item itemvalue="ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should be rejected for other requests than POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a success message for POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a response in application/json for POST request&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when random string input not remotely related to time&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time is almost like in ISO but missing T and Z&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request for POST requests with invalid time in body when time given with invalid Date of month&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when cart_value is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when delivery_distance is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when number_of_items is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests missing required members in body when time is missing in POST request body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request:malformed for POST requests with wrong types for fields in body&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;&#10;HTTP Request to /api/calculate-calculate-delivery-fee should Unsupported Media Type response for POST requests with headers other than JSON for example text/plain&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1 - 500&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1000&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1999&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 2000&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value below MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value more than MinimumCartValueNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by cart value when cart value equals CartValueNeededForFreeDelivery&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items equals MaximumNumberOfItemsNoSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery fee influenced by number of items when items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge&#10;HTTP Request to /api/calculate-calculate-delivery-fee should have a 1.2x multiplier to fee influenced by delivery time when delivery time is on Friday between 15:00 and 19:00 inclusive&#10;HTTP Request to /api/calculate-calculate-delivery-fee should not have a multiplier(1.0f) influenced by delivery time when delivery time is on Tuesday between 15:00 and 19:00 inclusive" />
-        <item itemvalue="ScalaTest.MyApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a bad request &quot;One or more input field values except time is negative&quot;" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +252,8 @@
       <workItem from="1706284393416" duration="29000" />
       <workItem from="1706284437459" duration="9966000" />
       <workItem from="1706303011975" duration="14843000" />
-      <workItem from="1706469819594" duration="22356000" />
+      <workItem from="1706469819594" duration="29418000" />
+      <workItem from="1706609994153" duration="1897000" />
     </task>
     <task id="LOCAL-00001" summary="1 Post Request, root working, post not accepting json">
       <option name="closed" value="true" />
@@ -296,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706543418747</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Minor Adjustments TODO: ADD EVEN MORE tests">
+      <option name="closed" value="true" />
+      <created>1706561538456</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706561538456</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +340,8 @@
     <MESSAGE value="Base Program Complete, TODO: Add more tests, clean code" />
     <MESSAGE value="Cleaned Code. TODO: ADD EVEN MORE tests" />
     <MESSAGE value="Renamed MyApiRoutes to DeliveryApiRoutes TODO: ADD EVEN MORE tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed MyApiRoutes to DeliveryApiRoutes TODO: ADD EVEN MORE tests" />
+    <MESSAGE value="Minor Adjustments TODO: ADD EVEN MORE tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Adjustments TODO: ADD EVEN MORE tests" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

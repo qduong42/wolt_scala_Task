@@ -14,7 +14,9 @@ object Main extends App with JsonSupport {
 
   private val deliveryApiRoutesInstance: DeliveryApiRoutes = DeliveryApiRoutes()
   val routes = deliveryApiRoutesInstance.route
-  Http().newServerAt("localhost", 8080).bindFlow(routes)
-  println(s"Server online at http://localhost:8080/")
+  private val port = 8080
+  private val interface = "localhost"
+  Http().newServerAt(interface, port).bindFlow(routes)
+  println(s"Server online at http://localhost:$port/")
 }
 
