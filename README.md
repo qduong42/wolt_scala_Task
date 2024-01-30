@@ -93,7 +93,11 @@ Example:
   
 ### Reflections
 
+This section contains certain considerations about possible inadequacies about the project, that should be clarified further. These considerations depend on how one would like to build upon the project moving forward and are not yet inadequacies for the current requirements.
+
 - Logging is included with  "ch.qos.logback" % "logback-classic" % "1.4.12" in sbt file. This is not necessary for this barebone project but it gets rid of warnings in runing the server and is useful later for a full-fledged server
 - Custom Rejection Handling with own messages might give the developer more control over what response is being sent. Some elements are being handled by Akka HTTP Default rejection handling at the moment. The decision was made to avoid the project to be too bloated.
 - Multiplier to fee calculation in regards to Friday Rush hour is currently done in a trunc method. If final fee is 105.5 CENTS it will be displayed as 105 CENTS
 - time input is accepted in UTC or OFFSET, but UTC time is used for calculation. This is as specified in the project. For a more accurate representation, Time Zone should be infered from Time Input and the TimeZone recognized and compared with rush hour in locale time.
+- Delivery cost for delivery distance is set to 2 euro if customers for some reason may order food from a restaurant at their same address, they still pay delivery fee for 0m (First 1000m by definition).
+- Delivery fee subcalculations functions changed from private def to def so that the tests could directly test subcomponents and not on the response of gross calculated fee.
