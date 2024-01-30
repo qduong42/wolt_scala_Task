@@ -28,7 +28,7 @@ sbt test
 ```
 will run the testsuite with provided tests.
 
-### Manual Testing with Curl example
+### Manual Testing with Curl example(for wsl instructions see below)
 
 - Requires a running server using ```sbt run```
 
@@ -67,6 +67,12 @@ Example:
 
 - Zero Value for fields except time
     - Value accepted as valid, if one or more of cart_value or deliver_distance or number_of_items is 0, response in json for delivery_fee will be 0
+ 
+### WSL
+
+- if program is run on windows, but you want to curl with a ubuntu WSL terminal, you need to replace ```localhost``` with ip address of windows host machine.
+- run ipconfig on windows terminal.
+- take the ipv4 address and replace it in the curl command in ubuntu terminal. eg: ```curl -X POST http://192.168.1.15:8080/api/calculate-delivery-fee -H "Content-Type: application/json" -d '{"cart_value": 1000, "delivery_distance": 1000, "number_of_items":4, "time": "2024-01-30T15:00:00Z"}'```
   
 ### Invalid Requests handling
 
