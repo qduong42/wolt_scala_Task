@@ -25,14 +25,14 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
       }
     }
     "return a success message for POST request" in {
-      val requestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
+      val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
 
       Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
         status shouldEqual StatusCodes.OK
       }
     }
     "return a response in application/json for POST request" in {
-      val requestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
+      val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
 
       Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
 
@@ -44,7 +44,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
     }
     "return a bad request for POST requests with invalid time in body" when {
       "random string input not remotely related to time" in {
-        val invalidRequestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "invalid-time"}"""
+        val invalidRequestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "invalid-time"}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           status shouldEqual StatusCodes.BadRequest
@@ -52,7 +52,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
       "time is almost like in ISO but missing T and Z" in {
-        val invalidRequestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-1513:00:00"}"""
+        val invalidRequestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-1513:00:00"}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           status shouldEqual StatusCodes.BadRequest
@@ -60,7 +60,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
       "time given with invalid Date of month" in {
-        val invalidRequestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2022-01-35T10:30:00Z"}"""
+        val invalidRequestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2022-01-35T10:30:00Z"}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           status shouldEqual StatusCodes.BadRequest
@@ -70,7 +70,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
     }
     "return a bad request:malformed for POST requests missing required members in body" when {
       "cart_value is missing in POST request body" in {
-        val invalidRequestEntity = """{"delivery_distance": 2235, "number_of_items": 4, "time": "invalid-time"}"""
+        val invalidRequestEntity = """{"delivery_distance": 1000, "number_of_items": 4, "time": "invalid-time"}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           rejection should matchPattern {
@@ -79,7 +79,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
       "delivery_distance is missing in POST request body" in {
-        val invalidRequestEntity = """{"cart_value": 790, "number_of_items": 4, "time": "invalid-time"}"""
+        val invalidRequestEntity = """{"cart_value": 1000, "number_of_items": 4, "time": "invalid-time"}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           rejection should matchPattern {
@@ -88,7 +88,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
       "number_of_items is missing in POST request body" in {
-        val invalidRequestEntity = """{"cart_value": 790, "delivery_distance": 2235, "time": "invalid-time"}"""
+        val invalidRequestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "time": "invalid-time"}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           rejection should matchPattern {
@@ -97,7 +97,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
       "time is missing in POST request body" in {
-        val invalidRequestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4}"""
+        val invalidRequestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4}"""
 
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
           rejection should matchPattern {
@@ -107,16 +107,16 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
       }
     }
     "return a bad request:malformed for POST requests with wrong types for fields in body" in {
-      val invalidRequestEntity = """{"cart_value": "790", "delivery_distance": 2235, "number_of_items": 4, "time": "invalid-time"}"""
+      val invalidRequestEntity = """{"cart_value": "1000", "delivery_distance": 1000, "number_of_items": 4, "time": "invalid-time"}"""
 
       Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
         rejection should matchPattern {
-          case MalformedRequestContentRejection("Expected Int as JsNumber, but got \"790\"", _: spray.json.DeserializationException) =>
+          case MalformedRequestContentRejection("Expected Int as JsNumber, but got \"1000\"", _: spray.json.DeserializationException) =>
         }
       }
     }
     "return a bad request \"One or more input field values except time is negative\"" in {
-      val invalidRequestEntity = """{"cart_value": -500, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
+      val invalidRequestEntity = """{"cart_value": -500, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
 
       Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, invalidRequestEntity) ~> DeliveryApiRoutes.route ~> check {
         status shouldEqual StatusCodes.BadRequest
@@ -124,70 +124,50 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
       }
     }
     "Unsupported Media Type response for POST requests with headers other than JSON for example text/plain" in {
-      val requestEntity = """{"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
+      val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
 
       Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`text/plain(UTF-8)`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
         status shouldEqual StatusCodes.UnsupportedMediaType
       }
     }
-    "return correct delivery distance fee" when {
-      "delivery distance is 0" in {
-        val requestEntity = """{"cart_value": 790, "delivery_distance": 0, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 0
-        }
+    "return correct delivery distance fee calculation" when {
+      "delivery distance is 0 returns delivery fee first 1000m" in {
+        val deliveryDistance = 0
+        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 200
       }
       "delivery distance is 1 - 500" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 499, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 200
-        }
+        val deliveryDistance = 499
+        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 200
       }
       "delivery distance is 1000" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 200
-        }
+        val deliveryDistance = 1000
+        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 200
+      }
+      "delivery distance is 1500" in {
+        val deliveryDistance = 1500
+        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 300
       }
       "delivery distance is 1999" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1999, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 400
-        }
+        val deliveryDistance = 1999
+        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 400
       }
       "delivery distance is 2000" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 2000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 400
-        }
+          val deliveryDistance = 2000
+          DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 400
       }
     }
-    "return correct delivery fee influenced by cart value" when {
+    "return correct cart value fee calculation" when {
       "cart value below MinimumCartValueNoSurcharge" in {
-        val requestEntity = """{"cart_value": 500, "delivery_distance": 2000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 900
-        }
+        val cartValue = 245
+        DeliveryApiRoutes.cartValueCheck(cartValue) equals 755
       }
       "cart value equals MinimumCartValueNoSurcharge" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 2000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 400
-        }
+        val cartValue = 1000
+        DeliveryApiRoutes.cartValueCheck(cartValue) equals 0
       }
       "cart value more than MinimumCartValueNoSurcharge" in {
-        val requestEntity = """{"cart_value": 1500, "delivery_distance": 2000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 400
-        }
+        val cartValue = 1500
+        DeliveryApiRoutes.cartValueCheck(cartValue) equals 0
       }
       "cart value equals CartValueNeededForFreeDelivery" in {
         val requestEntity = """{"cart_value": 20000, "delivery_distance": 5000, "number_of_items": 9, "time": "2024-01-15T13:00:00Z"}"""
@@ -197,30 +177,21 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
     }
-    "return correct delivery fee influenced by number of items" when {
-      "items equals MaximumNumberOfItemsNoSurcharge" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 200
-        }
+    "return correct number of items fee surcharge calculation" when {
+      "items equals MaximumNumberOfItemsNoSurcharge : 4" in {
+        val noOfItems = 4
+        DeliveryApiRoutes.cartValueCheck(noOfItems) equals 0
       }
       "items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 12, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 600
-        }
+        val noOfItems = 12
+        DeliveryApiRoutes.cartValueCheck(noOfItems) equals 400
       }
       "items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 14, "time": "2024-01-15T13:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 820
-        }
+        val noOfItems = 14
+        DeliveryApiRoutes.cartValueCheck(noOfItems) equals 620
       }
     }
-    "have a 1.2x multiplier to fee influenced by delivery time" when {
+    "delivery cost subject to 1.2x multiplier to fee influenced by delivery time" when {
       "delivery time is on Friday between 15:00 and 19:00 inclusive" in {
         val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-19T15:00:00Z"}"""
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
@@ -229,7 +200,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
     }
-    "not have a multiplier(1.0f) influenced by delivery time " when {
+    "delivery cost NOT subject to multiplier(1.0f) influenced by delivery time " when {
       "delivery time is on Tuesday between 15:00 and 19:00 inclusive" in {
         val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-16T15:00:00Z"}"""
         Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
@@ -238,8 +209,31 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
     }
+    "return correct gross delivery fee" when{
+      "number of items are 0" in{
+        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 0, "time": "2024-01-16T15:00:00Z"}"""
+        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
+          val response = responseAs[DeliveryFeeResponse]
+          response.delivery_fee shouldEqual 0
+        }
+      }
+      "cart value is 0" in{
+        val requestEntity = """{"cart_value": 0, "delivery_distance": 1000, "number_of_items": 0, "time": "2024-01-16T15:00:00Z"}"""
+        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
+          val response = responseAs[DeliveryFeeResponse]
+          response.delivery_fee shouldEqual 0
+        }
+      }
+      "maximum delivery fee is exceeded " in{
+        val requestEntity = """{"cart_value": 100, "delivery_distance": 10000, "number_of_items": 100, "time": "2024-01-16T15:00:00Z"}"""
+        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
+          val response = responseAs[DeliveryFeeResponse]
+          response.delivery_fee shouldEqual 1500
+        }
+      }
+    }
   }
-  "HTTP Request to all other paths" should{
+  "HTTP Request to all other paths" should {
     "return a 'not found' response for unsupported endpoints" when {
       "root endpoint requested" in {
         val unsupportedEndpoint = "/"

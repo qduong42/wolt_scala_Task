@@ -12,7 +12,7 @@ class DeliveryApiRoutes extends Directives with JsonSupport with DeliveryFeeCalc
         post {
           handleCalculateDeliveryFee
         }
-      } ~
+      }~
         handleRootRequests("/api/")
     }~
       handleRootRequests("/")

@@ -1,9 +1,10 @@
 package api.services
 
-import api.routes.{JsonSupport, OrderData}
+import api.routes.OrderData
 
+import java.time.{Instant, OffsetTime, ZoneOffset}
+import java.time.DayOfWeek
 import java.time.format.DateTimeFormatter
-import java.time.{DayOfWeek, Instant, OffsetTime, ZoneOffset}
 import scala.math.Ordered.orderingToOrdered
 
 trait DeliveryFeeCalculationService {
@@ -21,12 +22,12 @@ trait DeliveryFeeCalculationService {
     orderData.delivery_distance < 0 || orderData.cart_value < 0 || orderData.number_of_items < 0
   }
   private def isOneFieldZero(orderData:OrderData): Boolean ={
-    orderData.delivery_distance == 0 || orderData.cart_value == 0 || orderData.number_of_items == 0
+    orderData.cart_value == 0 || orderData.number_of_items == 0
   }
   private def isCartValueMoreThanNeededForFreeDelivery(cartValue: Int):Boolean ={
     cartValue >= CartValueNeededForFreeDelivery
   }
-  private def deliveryDistanceFee(deliveryDistance:Int): Int ={
+  def deliveryDistanceFee(deliveryDistance:Int): Int ={
     var deliveryDistanceCost = DeliveryFeeFirst1000m
     if (deliveryDistance > 1000) {
       if (deliveryDistance % 500 != 0) {
@@ -36,7 +37,7 @@ trait DeliveryFeeCalculationService {
     }
     deliveryDistanceCost
   }
-  private def cartValueCheck(cartValue :Int): Int ={
+  def cartValueCheck(cartValue :Int): Int ={
     var feeAfterSurcharge = 0
     if (cartValue < MinimumCartValueNoSurcharge) {
       feeAfterSurcharge = MinimumCartValueNoSurcharge - cartValue
