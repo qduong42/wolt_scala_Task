@@ -8,7 +8,7 @@ This is my solution for the [Wolt Engineering Summer Internship Pre Assignment](
 
 This project uses sbt 1.9.8 as the compile, run and test tool. Installation steps can be taken from the official documentation: https://www.scala-sbt.org/1.x/docs/Setup.html 
 
-The program was built and tested with Java 21.0.2.
+The program was built and tested with Java 21.0.2. Installation instructions for Java can be taken from the official documentation: https://docs.oracle.com/en/java/javase/21/install/installation-guide.pdf
 
 ## Build and Run
 
