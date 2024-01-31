@@ -30,7 +30,7 @@ trait DeliveryFeeCalculationService {
     cartValue >= CartValueNeededForFreeDelivery
   }
 
-  def deliveryDistanceFee(deliveryDistance:Int): Int ={
+  def calculateDeliveryDistanceFee(deliveryDistance:Int): Int ={
     var deliveryDistanceCost = DeliveryFeeFirst1000m
     if (deliveryDistance > 1000) {
       if (deliveryDistance % 500 != 0) {
@@ -41,7 +41,7 @@ trait DeliveryFeeCalculationService {
     deliveryDistanceCost
   }
 
-  def cartValueCheck(cartValue :Int): Int ={
+  def calculateCartValueSurcharge(cartValue :Int): Int ={
     var feeAfterSurcharge = 0
     if (cartValue < MinimumCartValueNoSurcharge) {
       feeAfterSurcharge = MinimumCartValueNoSurcharge - cartValue
@@ -49,13 +49,13 @@ trait DeliveryFeeCalculationService {
     feeAfterSurcharge
   }
 
-  private def calculateNoOfItemsSurcharge(numberOfItems: Int) : Int ={
-    var bulkSurchargeFee = 0
+  private def calculateNumberOfItemsSurcharge(numberOfItems: Int) : Int ={
+    var bulkSurcharge = 0
     if (numberOfItems > MaximumNumberOfItemsNoSurcharge)
-      bulkSurchargeFee += (SurchargePerItemMoreThanFour * (numberOfItems - MaximumNumberOfItemsNoSurcharge))
+      bulkSurcharge += (SurchargePerItemMoreThanFour * (numberOfItems - MaximumNumberOfItemsNoSurcharge))
     if (numberOfItems > MaximumNumberOfItemsNoBulkSurcharge)
-        bulkSurchargeFee += BulkSurcharge
-    bulkSurchargeFee
+        bulkSurcharge += BulkSurcharge
+    bulkSurcharge
   }
 
   private def parseIsoTime(isoTime: String): Instant = {
@@ -73,8 +73,7 @@ trait DeliveryFeeCalculationService {
     val timeOfDay = instant.atOffset(ZoneOffset.UTC).toOffsetTime
     timeOfDay >= RushHourStartTime && timeOfDay <= RushHourEndTime
   }
-
-  private def calculateFridayRushSurcharge(isoTime: String): Float ={
+  def calculateFridayRushSurcharge(isoTime: String): Float ={
     val instant = parseIsoTime(isoTime)
     if (isFriday(instant) && isRushHour(instant)) {
       return FridayRushSurchargeMultiplier
@@ -92,9 +91,9 @@ trait DeliveryFeeCalculationService {
       return 0
     if(isCartValueMoreThanNeededForFreeDelivery(orderData.cart_value))
       return 0
-    deliveryFeeInCents += deliveryDistanceFee(orderData.delivery_distance)
-    deliveryFeeInCents += cartValueCheck(orderData.cart_value)
-    deliveryFeeInCents += calculateNoOfItemsSurcharge(orderData.number_of_items)
+    deliveryFeeInCents += calculateDeliveryDistanceFee(orderData.delivery_distance)
+    deliveryFeeInCents += calculateCartValueSurcharge(orderData.cart_value)
+    deliveryFeeInCents += calculateNumberOfItemsSurcharge(orderData.number_of_items)
     deliveryFeeInCents = (deliveryFeeInCents * calculateFridayRushSurcharge(orderData.time)).toInt
     if (isOverMaximumDeliveryFee(deliveryFeeInCents))
       return MaximumDeliveryFee

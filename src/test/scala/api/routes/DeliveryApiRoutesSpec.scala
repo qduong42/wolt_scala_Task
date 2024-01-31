@@ -123,41 +123,61 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
     "return correct delivery distance fee calculation" when {
       "delivery distance is 0 returns delivery fee first 1000m" in {
         val deliveryDistance = 0
-        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 200
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 200
       }
-      "delivery distance is 1 - 500" in {
+      "delivery distance is 1" in {
+        val deliveryDistance = 1
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 200
+      }
+      "delivery distance is 499" in {
         val deliveryDistance = 499
-        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 200
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 200
+      }
+      "delivery distance is 500" in {
+        val deliveryDistance = 500
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 200
+      }
+      "delivery distance is 501" in {
+        val deliveryDistance = 501
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 200
       }
       "delivery distance is 1000" in {
         val deliveryDistance = 1000
-        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 200
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 200
+      }
+      "delivery distance is 1001" in {
+        val deliveryDistance = 1001
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 250
       }
       "delivery distance is 1500" in {
         val deliveryDistance = 1500
-        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 300
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 300
       }
       "delivery distance is 1999" in {
         val deliveryDistance = 1999
-        DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 400
+        DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 400
       }
       "delivery distance is 2000" in {
           val deliveryDistance = 2000
-          DeliveryApiRoutes.deliveryDistanceFee(deliveryDistance) equals 400
+          DeliveryApiRoutes.calculateDeliveryDistanceFee(deliveryDistance) equals 400
       }
     }
-    "return correct cart value fee calculation" when {
+    "return correct cart value surcharge calculation" when {
+      "cart value is 0" in{
+        val cartValue = 0
+        DeliveryApiRoutes.calculateCartValueSurcharge(cartValue) equals 0
+      }
       "cart value below MinimumCartValueNoSurcharge" in {
         val cartValue = 245
-        DeliveryApiRoutes.cartValueCheck(cartValue) equals 755
+        DeliveryApiRoutes.calculateCartValueSurcharge(cartValue) equals 755
       }
       "cart value equals MinimumCartValueNoSurcharge" in {
         val cartValue = 1000
-        DeliveryApiRoutes.cartValueCheck(cartValue) equals 0
+        DeliveryApiRoutes.calculateCartValueSurcharge(cartValue) equals 0
       }
       "cart value more than MinimumCartValueNoSurcharge" in {
         val cartValue = 1500
-        DeliveryApiRoutes.cartValueCheck(cartValue) equals 0
+        DeliveryApiRoutes.calculateCartValueSurcharge(cartValue) equals 0
       }
       "cart value equals CartValueNeededForFreeDelivery" in {
         val requestEntity = """{"cart_value": 20000, "delivery_distance": 5000, "number_of_items": 9, "time": "2024-01-15T13:00:00Z"}"""
@@ -167,59 +187,52 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
         }
       }
     }
-    "return correct number of items fee surcharge calculation" when {
+    "return correct number of items surcharge calculation" when {
       "items equals MaximumNumberOfItemsNoSurcharge : 4" in {
         val noOfItems = 4
-        DeliveryApiRoutes.cartValueCheck(noOfItems) equals 0
+        DeliveryApiRoutes.calculateCartValueSurcharge(noOfItems) equals 0
       }
       "items more than MaximumNumberOfItemsNoSurcharge but equal to MaximumNumberOfItemsNoBulkSurcharge" in {
         val noOfItems = 12
-        DeliveryApiRoutes.cartValueCheck(noOfItems) equals 400
+        DeliveryApiRoutes.calculateCartValueSurcharge(noOfItems) equals 400
       }
       "items more than both MaximumNumberOfItemsNoSurcharge and MaximumNumberOfItemsNoBulkSurcharge" in {
         val noOfItems = 14
-        DeliveryApiRoutes.cartValueCheck(noOfItems) equals 620
+        DeliveryApiRoutes.calculateCartValueSurcharge(noOfItems) equals 620
       }
     }
-    "delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday" when {
+    "delivery fee subject to 1.2x multiplier influenced by delivery time on Friday" when {
       "delivery time is at 15:00 Friday" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-19T15:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 240
-        }
+        val time = "2024-01-19T15:00:00Z"
+        DeliveryApiRoutes.calculateFridayRushSurcharge(time) equals 1.2f
       }
       "delivery time in UTC would be on 15:00 Friday" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-19T17:00:00+02:00"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 240
-        }
+        val time = "2024-01-19T17:00:00+02:00"
+        DeliveryApiRoutes.calculateFridayRushSurcharge(time) equals 1.2f
       }
       "delivery fee at 15:45 on Friday" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-19T15:45:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 240
-        }
+        val time = "2024-01-19T15:45:00Z"
+        DeliveryApiRoutes.calculateFridayRushSurcharge(time) equals 1.0f
       }
-      "delivery fee truncated from 345.6 to 345 after multiplied on 19:00 Friday" in {
-        val requestEntity = """{"cart_value": 912, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-19T19:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 345
-        }
+
+    }
+    "delivery fee truncated from 345.6 to 345 after multiplied by 1.2x on 19:00 Friday" in {
+      val requestEntity = """{"cart_value": 912, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-19T19:00:00Z"}"""
+      Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
+        val response = responseAs[DeliveryFeeResponse]
+        response.delivery_fee shouldEqual 345
       }
     }
-    "delivery cost NOT subject to multiplier(1.0f) influenced by delivery time " when {
-      "delivery time is on Tuesday between 15:00 and 19:00 inclusive" in {
-        val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 4, "time": "2024-01-16T15:00:00Z"}"""
-        Post("/api/calculate-delivery-fee").withEntity(ContentTypes.`application/json`, requestEntity) ~> DeliveryApiRoutes.route ~> check {
-          val response = responseAs[DeliveryFeeResponse]
-          response.delivery_fee shouldEqual 200
+    "delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day " when {
+      "delivery time is on Tuesday at 15:45(Rush Hour but not Friday)" in {
+        val time = "2024-01-16T15:45:00Z"
+        DeliveryApiRoutes.calculateFridayRushSurcharge(time) equals 1.0f
+      }
+      "delivery time is on Friday at 13:30(Before 15:00 Rush Hour)" in{
+        val time = "2024-01-19T13:30:00Z"
+        DeliveryApiRoutes.calculateFridayRushSurcharge(time) equals 1.0f
         }
       }
-    }
     "return correct gross delivery fee" when{
       "number of items are 0" in{
         val requestEntity = """{"cart_value": 1000, "delivery_distance": 1000, "number_of_items": 0, "time": "2024-01-16T15:00:00Z"}"""
@@ -244,7 +257,7 @@ class DeliveryApiRoutesSpec extends AnyWordSpec with Matchers with ScalatestRout
       }
     }
   }
-  "HTTP Request to all other paths" should {
+  "HTTP Request to other paths" should {
     "return a 'not found' response for unsupported endpoints" when {
       "root endpoint requested" in {
         val unsupportedEndpoint = "/"

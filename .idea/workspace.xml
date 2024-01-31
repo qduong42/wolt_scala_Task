@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="moved json support.scala to support directory. Should be final final">
+    <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="minor formatting.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/api/routes/DeliveryApiRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/routes/DeliveryApiRoutes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/api/services/DeliveryFeeCalculationService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/services/DeliveryFeeCalculationService.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,8 +98,18 @@
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee trunc after multiplied on 19:00 Friday.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee truncated from 345.6 to 345 after multiplied on 19:00 Friday.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time when delivery time in UTC would be on 15:00.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Friday at 13:30(Before 15:00 Rush Hour).executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Tuesday at 15:45 inclusive.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Tuesday at 15:45(Rush Hour but not Friday).executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery fee at 15:45 on Friday.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time in UTC would be on 15:00 Friday.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time is at 15:00 Friday.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a status ok for valid time with milliseconds.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct cart value fee calculation when cart value below MinimumCartValueNoSurcharge.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct cart value fee calculation when cart value is 0.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 0 returns delivery fee first 1000m\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 499\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 501\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1001\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1999\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 2000.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 0 returns delivery fee first 1000m\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 499\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 501\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1999\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 2000.executor": "Run",
+    "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee calculation when delivery distance is 1.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0 returns delivery fee first 1000m\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1 - 500\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1000\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 1999\nHTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 2000.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0 returns delivery fee first 1000m.executor": "Run",
     "ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return correct delivery distance fee when delivery distance is 0.executor": "Run",
@@ -175,22 +184,21 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a status ok for valid time with milliseconds">
-    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee at 15:45 on Friday" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+  <component name="RunManager" selected="ScalaTest.DeliveryApiRoutesSpec">
+    <configuration name="DeliveryApiRoutesSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="WoltScalaTask" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
-      <option name="testKind" value="Test name" />
+      <option name="testKind" value="Class" />
       <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
-      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee at 15:45 on Friday" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee trunc after multiplied on 19:00 Friday" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Tuesday at 15:45(Rush Hour but not Friday)" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="WoltScalaTask" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -199,12 +207,12 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
-      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee trunc after multiplied on 19:00 Friday" />
+      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Tuesday at 15:45(Rush Hour but not Friday)" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee truncated from 345.6 to 345 after multiplied on 19:00 Friday" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery fee at 15:45 on Friday" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="WoltScalaTask" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -213,12 +221,12 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
-      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee truncated from 345.6 to 345 after multiplied on 19:00 Friday" />
+      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery fee at 15:45 on Friday" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time when delivery time in UTC would be on 15:00" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time in UTC would be on 15:00 Friday" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="WoltScalaTask" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -227,12 +235,12 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
-      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time when delivery time in UTC would be on 15:00" />
+      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time in UTC would be on 15:00 Friday" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a status ok for valid time with milliseconds" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <configuration name="DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time is at 15:00 Friday" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="WoltScalaTask" />
       <option name="allowRunningInParallel" value="false" />
       <option name="projectPathOnTarget" />
@@ -241,25 +249,25 @@
       </option>
       <option name="testKind" value="Test name" />
       <option name="testClassPath" value="api.routes.DeliveryApiRoutesSpec" />
-      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should return a status ok for valid time with milliseconds" />
+      <option name="testName" value="HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time is at 15:00 Friday" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee at 15:45 on Friday" />
-      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee trunc after multiplied on 19:00 Friday" />
-      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee truncated from 345.6 to 345 after multiplied on 19:00 Friday" />
-      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time when delivery time in UTC would be on 15:00" />
-      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a status ok for valid time with milliseconds" />
+      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Tuesday at 15:45(Rush Hour but not Friday)" />
+      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery fee at 15:45 on Friday" />
+      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time in UTC would be on 15:00 Friday" />
+      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time is at 15:00 Friday" />
+      <item itemvalue="ScalaTest.DeliveryApiRoutesSpec" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should return a status ok for valid time with milliseconds" />
-        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee at 15:45 on Friday" />
-        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee truncated from 345.6 to 345 after multiplied on 19:00 Friday" />
-        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time on Friday when delivery fee trunc after multiplied on 19:00 Friday" />
-        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery cost subject to 1.2x multiplier to fee influenced by delivery time when delivery time in UTC would be on 15:00" />
+        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec" />
+        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery fee at 15:45 on Friday" />
+        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time in UTC would be on 15:00 Friday" />
+        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee subject to 1.2x multiplier influenced by delivery time on Friday when delivery time is at 15:00 Friday" />
+        <item itemvalue="ScalaTest.DeliveryApiRoutesSpec.HTTP Request to /api/calculate-calculate-delivery-fee should delivery fee NOT subject to multiplier(1.0f) influenced by delivery time or day when delivery time is on Tuesday at 15:45(Rush Hour but not Friday)" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +287,7 @@
       <workItem from="1706609994153" duration="1897000" />
       <workItem from="1706618050583" duration="694000" />
       <workItem from="1706618909729" duration="5733000" />
-      <workItem from="1706626040324" duration="2339000" />
+      <workItem from="1706626040324" duration="4004000" />
     </task>
     <task id="LOCAL-00001" summary="1 Post Request, root working, post not accepting json">
       <option name="closed" value="true" />
@@ -393,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706693592460</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="minor formatting.">
+      <option name="closed" value="true" />
+      <created>1706695197930</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706695197930</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +439,8 @@
     <MESSAGE value="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test sub-functions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better" />
     <MESSAGE value="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test subfunctions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better" />
     <MESSAGE value="moved json support.scala to support directory. Should be final final" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved json support.scala to support directory. Should be final final" />
+    <MESSAGE value="minor formatting." />
+    <option name="LAST_COMMIT_MESSAGE" value="minor formatting." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
