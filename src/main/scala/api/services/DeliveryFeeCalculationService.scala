@@ -17,15 +17,19 @@ trait DeliveryFeeCalculationService {
   private val BulkSurcharge = 120
   private val FridayRushSurchargeMultiplier = 1.2f
   private val MaximumDeliveryFee = 1500
+
   def isOneFieldNegative(orderData:OrderData): Boolean={
     orderData.delivery_distance < 0 || orderData.cart_value < 0 || orderData.number_of_items < 0
   }
+
   private def isOneFieldZero(orderData:OrderData): Boolean ={
     orderData.cart_value == 0 || orderData.number_of_items == 0
   }
+
   private def isCartValueMoreThanNeededForFreeDelivery(cartValue: Int):Boolean ={
     cartValue >= CartValueNeededForFreeDelivery
   }
+
   def deliveryDistanceFee(deliveryDistance:Int): Int ={
     var deliveryDistanceCost = DeliveryFeeFirst1000m
     if (deliveryDistance > 1000) {
@@ -36,6 +40,7 @@ trait DeliveryFeeCalculationService {
     }
     deliveryDistanceCost
   }
+
   def cartValueCheck(cartValue :Int): Int ={
     var feeAfterSurcharge = 0
     if (cartValue < MinimumCartValueNoSurcharge) {
@@ -43,6 +48,7 @@ trait DeliveryFeeCalculationService {
     }
     feeAfterSurcharge
   }
+
   private def calculateNoOfItemsSurcharge(numberOfItems: Int) : Int ={
     var bulkSurchargeFee = 0
     if (numberOfItems > MaximumNumberOfItemsNoSurcharge)
@@ -51,19 +57,23 @@ trait DeliveryFeeCalculationService {
         bulkSurchargeFee += BulkSurcharge
     bulkSurchargeFee
   }
+
   private def parseIsoTime(isoTime: String): Instant = {
     val formatter = DateTimeFormatter.ISO_INSTANT
     Instant.from(formatter.parse(isoTime))
   }
+
   private def isFriday(instant: Instant): Boolean = {
     instant.atOffset(ZoneOffset.UTC).getDayOfWeek == DayOfWeek.FRIDAY
   }
+
   private def isRushHour(instant: Instant): Boolean = {
     val RushHourStartTime: OffsetTime = OffsetTime.of(15, 0, 0, 0, ZoneOffset.UTC)
     val RushHourEndTime: OffsetTime = OffsetTime.of(19, 0, 0, 0, ZoneOffset.UTC)
     val timeOfDay = instant.atOffset(ZoneOffset.UTC).toOffsetTime
     timeOfDay >= RushHourStartTime && timeOfDay <= RushHourEndTime
   }
+
   private def calculateFridayRushSurcharge(isoTime: String): Float ={
     val instant = parseIsoTime(isoTime)
     if (isFriday(instant) && isRushHour(instant)) {
@@ -71,9 +81,11 @@ trait DeliveryFeeCalculationService {
     }
     1.0f
   }
+
   private def isOverMaximumDeliveryFee(deliveryFee: Int):Boolean = {
     deliveryFee > MaximumDeliveryFee
   }
+
   def calculateDeliveryFee(orderData: OrderData): Int = {
     var deliveryFeeInCents = 0
     if (isOneFieldZero(orderData))

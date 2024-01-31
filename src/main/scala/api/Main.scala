@@ -8,7 +8,6 @@ import api.support.JsonSupport
 import scala.concurrent.ExecutionContextExecutor
 
 object Main extends App with JsonSupport {
-
   implicit val system: ActorSystem = ActorSystem("calculate-delivery-fee-api")
   implicit val materializer: Materializer = Materializer.createMaterializer(system)
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher

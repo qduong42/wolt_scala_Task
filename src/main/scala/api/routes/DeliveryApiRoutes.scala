@@ -6,7 +6,6 @@ import api.services.DeliveryFeeCalculationService
 import api.support.{JsonSupport, OrderData}
 
 class DeliveryApiRoutes extends Directives with JsonSupport with DeliveryFeeCalculationService {
-
   val route: Route =
     pathPrefix("api") {
       path("calculate-delivery-fee") {
@@ -40,6 +39,7 @@ class DeliveryApiRoutes extends Directives with JsonSupport with DeliveryFeeCalc
       complete(StatusCodes.BadRequest, "Invalid time format. Please provide a valid date and time in ISO format.")
     }
   }
+
   private def handleRootRequests(message :String): Route = {
     pathEndOrSingleSlash {
       complete(StatusCodes.NotFound, s"The requested resource $message could not be found.")
