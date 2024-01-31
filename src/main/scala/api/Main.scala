@@ -3,7 +3,8 @@ package api
 import akka.actor.ActorSystem
 import akka.stream.Materializer
 import akka.http.scaladsl.Http
-import api.routes.{JsonSupport, DeliveryApiRoutes}
+import api.routes.DeliveryApiRoutes
+import api.support.JsonSupport
 import scala.concurrent.ExecutionContextExecutor
 
 object Main extends App with JsonSupport {

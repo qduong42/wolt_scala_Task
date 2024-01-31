@@ -4,6 +4,7 @@ import akka.http.scaladsl.model.headers.`Content-Type`
 import akka.http.scaladsl.model.{ContentTypes, HttpHeader, HttpMethods, StatusCodes}
 import akka.http.scaladsl.server.{MalformedRequestContentRejection, MethodRejection}
 import akka.http.scaladsl.testkit._
+import api.support.{DeliveryFeeResponse, JsonSupport}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

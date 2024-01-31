@@ -1,7 +1,8 @@
-package api.routes
+package api.support
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json.{DefaultJsonProtocol, RootJsonFormat}
+
 import java.time.format.{DateTimeFormatter, ResolverStyle}
 import java.time.{DateTimeException, Instant}
 

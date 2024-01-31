@@ -3,6 +3,7 @@ package api.routes
 import akka.http.scaladsl.model.{ContentTypes, StatusCodes}
 import akka.http.scaladsl.server.{Directives, Route}
 import api.services.DeliveryFeeCalculationService
+import api.support.{JsonSupport, OrderData}
 
 class DeliveryApiRoutes extends Directives with JsonSupport with DeliveryFeeCalculationService {
 

@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="417564aa-acc4-4383-850b-db4a6d0f9226" name="Changes" comment="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test subfunctions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/api/routes/DeliveryApiRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/routes/DeliveryApiRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/api/services/DeliveryFeeCalculationService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/api/services/DeliveryFeeCalculationService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/api/routes/DeliveryApiRoutesSpec.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +157,7 @@
     "go.import.settings.migrated": "true",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/tin_b/Downloads/WoltScalaTask - Submit",
+    "last_opened_file_path": "C:/Users/tin_b/Downloads/WoltScalaTask - Submit/WoltScalaTask - Submit",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -271,7 +268,8 @@
       <workItem from="1706469819594" duration="29418000" />
       <workItem from="1706609994153" duration="1897000" />
       <workItem from="1706618050583" duration="694000" />
-      <workItem from="1706618909729" duration="5551000" />
+      <workItem from="1706618909729" duration="5733000" />
+      <workItem from="1706626040324" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="1 Post Request, root working, post not accepting json">
       <option name="closed" value="true" />
@@ -361,7 +359,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706621281485</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test subfunctions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better">
+      <option name="closed" value="true" />
+      <created>1706625806014</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706625806014</updated>
+    </task>
+    <task id="LOCAL-00013" summary="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test subfunctions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better">
+      <option name="closed" value="true" />
+      <created>1706625843004</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706625843004</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,6 +402,7 @@
     <MESSAGE value="Minor Adjustments TODO: ADD EVEN MORE tests" />
     <MESSAGE value="added delete req to tests. TODO: ADD EVEN MORE tests" />
     <MESSAGE value="moved case class out of trait to avoid warning: The outer reference in this type test cannot be checked at run time.  TODO: ADD EVEN MORE tests" />
+    <MESSAGE value="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test sub-functions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better" />
     <MESSAGE value="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test subfunctions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better" />
     <option name="LAST_COMMIT_MESSAGE" value="delivery distance 0 still costs 2 euros delivery cost. Tests change to directly test subfunctions of delivery cost calculation itself, not asserting that response should equal total delivery cost. Should be more transparent what is being tested and individual components can be tested better" />
   </component>
